@@ -7,7 +7,12 @@
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+<!-- timepicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/i18n/jquery-ui-timepicker-el.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -125,13 +130,13 @@
 
 
 
-
-
+<p>Ημερομηνία test: <input type="text" class="datepicker" id="test-date" /></p>
 
 
   <p>Ημερομηνία έναρξης: <input type="text" class="datepicker" id="start-date" /></p>
   <input type="hidden" name="start-date-formatted" id="start-date-hidden" value="" />
 <!-- <p> End Date: <input type="text" class="datepicker" id="start-date" /></p> -->
+
   <p>Επαναλαμβανόμενο Event?
   <input type="radio" name="event-recurring" value="no" checked="checked" /> No
   <input type="radio" name="event-recurring" value="yes"  /> Yes   <!-- JON- THE OTHER OPTION ARE ACTIVATED BY CLICK EVENT - so leave this unchecked as default (so we have to CLICK) -->
