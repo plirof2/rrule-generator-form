@@ -13,24 +13,28 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form name="rrule-gen" id="rrule">
+
+
+
+
+<form name="rrule-gen" id="rrule" action="dummy_response_server.php" target="_blank" method="get">
 
 <table border=2><tr><td>
 
   <li id="li_2" >
-<label class="description" for="element_2">parent_id </label>
+<label class="description" for="parent_id">parent_id </label>
 <div>
-<input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value=""/>
+<input id="parent_id" name="parent_id" class="element text medium" type="text" maxlength="255" value="1"/>
 </div>
 </li>
 <li id="li_1" >
 <label class="description" for="id-frontistirioy">id-frontistirioy </label>
 <div>
 <select class="element select medium" id="id-frontistirioy" name="id-frontistirioy">
-<option value="" selected="selected"></option>
-<option value="1" >ΘΕΣΜΟΣ</option>
+<option value="1" selected="selected">ΚΟΡΥΦΗ Α.Ε.</option>
 <option value="2" >ΚΟΡΜΟΣ</option>
 <option value="3" >ΔΕΣΜΕΣ</option>
+<option value="4" >ΘΕΣΜΟΣ</option>
 
 </select>
 </div>
@@ -38,8 +42,7 @@
 <label class="description" for="id-classroom">id-classroom </label>
 <div>
 <select class="element select medium" id="id-classroom" name="id-classroom">
-<option value="" selected="selected"></option>
-<option value="1" >ΑΙΘΟΥΣΑ Α</option>
+<option value="1" selected="selected">ΑΙΘΟΥΣΑ Α</option>
 <option value="2" >ΑΙΘΟΥΣΑ Β</option>
 <option value="3" >ΑΙΘΟΥΣΑ ΔΙΑΔΡΑΣΤΙΚΟΥ</option>
 <option value="4" >ΑΙΘ.-ΕΡΓΑΣΤΗΡΙΟ Β</option>
@@ -50,13 +53,12 @@
 <label class="description" for="id_taksi">id_taksi </label>
 <div>
 <select class="element select medium" id="id_taksi" name="id_taksi">
-<option value="" selected="selected"></option>
-<option value="1" >ΓΥΜΝΑΣΙΟ-Α</option>
+<option value="1" selected="selected">ΓΥΜΝΑΣΙΟ-Α</option>
 <option value="2" >ΓΥΜΝΑΣΙΟ-Β</option>
 <option value="3" >ΓΥΜΝΑΣΙΟ-Γ</option>
 <option value="4" >ΛΥΚΕΙΟ-Α</option>
 <option value="5" >ΛΥΚΕΙΟ-Β</option>
-<option value="6" >ΛΥΚΕΙΟ-Γ ΘΕΤΙΚΗ</option>
+<option value="6" >ΛΥΚΕΙΟ-Γ ΘΕΤΙΚΗ </option>
 <option value="7" >ΛΥΚΕΙΟ-Γ ΘΕΩΡΗΤΙΚΗ</option>
 <option value="8" >LOWER</option>
 <option value="9" >JUNIOR-A</option>
@@ -67,8 +69,7 @@
 <label class="description" for="id_teacher">id_teacher </label>
 <div>
 <select class="element select medium" id="id_teacher" name="id_teacher">
-<option value="" selected="selected"></option>
-<option value="1" >ΠΑΠΑΔΟΠΟΥΛΟΣ Κ. ΠΕ19 ΑΦΜ4554395349</option>
+<option value="1" selected="selected" >ΠΑΠΑΔΟΠΟΥΛΟΣ Κ. ΠΕ19 ΑΦΜ4554395349</option>
 <option value="2" >ΛΙΝΟΥΣ Τ. ΠΕ03 ΑΦΜ453534435</option>
 <option value="3" >ΓΚΕΤΗΣ Β. ΠΕ19 ΑΦΜ557395349</option>
 
@@ -78,8 +79,7 @@
 <label class="description" for="id_tmima">id_tmima </label>
 <div>
 <select class="element select medium" id="id_tmima" name="id_tmima">
-<option value="" selected="selected"></option>
-<option value="1" >ΓΥΜΝ-Α2</option>
+<option value="1" selected="selected" >ΓΥΜΝ-Α2</option>
 <option value="2" >ΓΥΜΝ-Β3</option>
 <option value="3" >ΛΥΚ-ΓΘ1</option>
 <option value="4" >ΛΥΚ-ΓΤ1</option>
@@ -90,8 +90,7 @@
 <label class="description" for="id_lesson">ΜΑΘΗΜΑ </label>
 <div>
 <select class="element select medium" id="id_lesson" name="id_lesson">
-<option value="" selected="selected"></option>
-<option value="1" >ΑΛΓΕΒΡΑ Β-ΓΥΜΝ</option>
+<option value="1" selected="selected">ΑΛΓΕΒΡΑ Β-ΓΥΜΝ</option>
 <option value="2" >ΠΛΗΡΟΦΟΡΙΚΗ Γ-ΛΥΚ.</option>
 <option value="3" >ΑΡΧΑΙΑ Β-ΛΥΚ.</option>
 
@@ -101,8 +100,7 @@
 <label class="description" for="lesson_duration">lesson_duration </label>
 <div>
 <select class="element select medium" id="lesson_duration" name="lesson_duration">
-<option value="" selected="selected"></option>
-<option value="1" >45</option>
+<option value="1" selected="selected">45</option>
 <option value="2" >50</option>
 <option value="3" >60</option>
 
@@ -362,7 +360,8 @@
     </p>
   -->
     </div>
-    <input type="submit" name="submit" value="submit" />
+    <input type="hidden" name="rrule_generated" id="rrule_generated" value="NOT_CHANGED!!!!!!!!!!!!!!!!">
+    <input type="submit" name="submit" value="ΚΑΤΑΧΩΡΗΣΗ ΔΙΔΑΣΚΑΛΙΑΣ" />
   </div>
 
 </form>

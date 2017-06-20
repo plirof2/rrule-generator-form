@@ -370,7 +370,7 @@ function resetOptions() {
 		//$('input[id="until-select"]').prop('checked', false); //ORIG line jon
 		//$('input[id="count-select"]').prop('checked', true).change(); //ORIG line jon
 		$('input[id="until-select"]').prop('checked', true).change();
-		$('input[id="count-select"]').prop('checked', false);
+		//$('input[id="count-select"]').prop('checked', false); //disab
 
 		// $('#count').reset();
 }
@@ -451,9 +451,11 @@ $(document).ready(function(){
 
 	// Setup buttons Don't allow any buttons to submit the form
 		$('button').click(function(e){
-			e.preventDefault;
-			return false;
-		});
+			e.preventDefault; //orig line  commented by JON
+			return false; //orig line  commented by JON
+		});  //FUNTION COMMENTED BY JON -------------------------
+
+
 
 });
 
@@ -839,7 +841,7 @@ $(document).on('change', 'select[name^="month-byday"]', function(){
 
 // Handle Form Submission
 	$('#rrule').submit(function(e){
-		e.preventDefault();
+	///	e.preventDefault(); //orig line  commented by JON
 		// feed statement to rrule.js
 		// var rrule = rruleGenerate();
 
@@ -850,6 +852,8 @@ $(document).on('change', 'select[name^="month-byday"]', function(){
 
 		// }
 		alert ( rruleGenerate() );
-		return false;
+		document.getElementById('rrule_generated').value=rruleGenerate(); // added by jon 170620a
+		//return false; //ORIG commented by jon
+		return true; // added TRUE by jon  -THIS ALLOWS SUBMIT BUTTON TO WORK
 
 	});
