@@ -60,7 +60,7 @@ function readRule( rrule ) {
 	// Set either COUNT or UNTIL
 	if( typeof recur.COUNT == 'undefined' && recur.UNTIL ) {
 		recurringRule.until = recur.UNTIL;
-		
+
 	} else if(typeof recur.UNTIL == 'undefined' && recur.COUNT ) {
 		recurringRule.count = recur.COUNT;
 	}
@@ -76,7 +76,7 @@ function readRule( rrule ) {
     	//alert(startYear + startMonth + startDay);
     $('#start-date').val(startYear + '-' + startMonth + '-' + startDay);
 	$('#start-date-hidden').val(startYear+startMonth+startDay + 'T040000z');
-    
+
     // Setup start-date picker
       $( '#start-date' ).datepicker({
       	showOtherMonths: true,
@@ -88,17 +88,17 @@ function readRule( rrule ) {
 								dtstartString = dateSelected.getFullYear() + ('0' + (dateSelected.getMonth()+1)).slice(-2) + ('0' + dateSelected.getDate()).slice(-2);
 								$('#start-date-hidden').val(dtstartString + 'T040000z');
 								recurringRule.dtstart = dtstartString + 'T040000z';
-								
+
 								// Set minimum selected date on end-datepicker
 									minEndDate = dateSelected.getFullYear() + '-' + ('0' + (dateSelected.getMonth()+1)).slice(-2) + '-' + ('0' + dateSelected.getDate()).slice(-2);
 									$( '#end-date' ).datepicker('option', 'minDate', minEndDate);
 									// Reset the selected enddate
 									$('#end-date-hidden').val(dtstartString + 'T040000z');
-									
+
 								}
     	}).datepicker('setDate', 'today');
-      
-      
+
+
       // Setup the end-date picker
       $( '#end-date' ).datepicker({
       	showOtherMonths: true,
@@ -120,7 +120,7 @@ function readRule( rrule ) {
     	endYear = recur.UNTIL.substring(0,4);
     	endMonth = recur.UNTIL.substring(4,6);
     	endDay = recur.UNTIL.substring(6,8);
-    	
+
    		 $('#end-date').val(endYear + '-' + endMonth + '-' + endDay);
 		 $('#end-date-hidden').val(endYear+endMonth+endDay + 'T040000z');
 
@@ -130,14 +130,14 @@ function readRule( rrule ) {
 
 	// Set Recurring event radio to yes
 	$('input[name="event-recurring"]').prop('checked', true);
-	
-	// Show Recurring rules	
+
+	// Show Recurring rules
 	$('#recurring-rules').slideDown();
 
 	// Show Until Rules
 	$('#until-rules').show();
 
-	
+
 	switch(recur.FREQ) {
 
 		case("DAILY"):
@@ -157,7 +157,7 @@ function readRule( rrule ) {
 
 			// Show Until / Count Rules
 			$('#until-rules').show();
-			
+
 			if ( typeof recur.BYDAY !== 'undefined' ) {
 
 				// Split up the individual bymonthdays
@@ -170,10 +170,10 @@ function readRule( rrule ) {
 					$('#weekday-select button[id="'+bydays[v]+'"]').addClass('active')
 				}
 				recurringRule.byday = recur.BYDAY;
-				
+
 				return true;
 			}
-			
+
 		break;
 
 		case("MONTHLY"):
@@ -189,7 +189,7 @@ function readRule( rrule ) {
 
 			// Show Until / Count Rules
 			$('#until-rules').show();
-			
+
 			if ( typeof recur.BYMONTHDAY !== 'undefined' ) {
 
 				// Split up the individual bymonthdays
@@ -202,12 +202,12 @@ function readRule( rrule ) {
 					$('#monthday-select button[data-day-num="'+bymonthdays[v]+'"]').addClass('active')
 				}
 				recurringRule.bymonthday = recur.BYMONTHDAY;
-				
+
 				return true;
 			}
 
 			if ( typeof recur.BYSETPOS !== 'undefined' && typeof recur.BYDAY !== 'undefined'   ) {
-				
+
 				// Set Radio Button
 				$('input#month-byday-pos-selected').prop('checked', true);
 
@@ -217,19 +217,19 @@ function readRule( rrule ) {
 				// Set values
 				$('select[name="month-byday-pos"]').val(recur.BYSETPOS);
 				$('select[name="month-byday-pos-name"]').val(recur.BYDAY);
-				
+
 
 				//Disable day buttons
 				$('#monthday-select button').attr('disabled','disabled');
-				
+
 				recurringRule.bysetpos = recur.BYSETPOS;
 				recurringRule.byday = recur.BYDAY;
 
 				return true;
 			}
 
-			
-			
+
+
 		break;
 
 		case("YEARLY"):
@@ -245,7 +245,7 @@ function readRule( rrule ) {
 
 			// Show Until / Count Rules
 			$('#until-rules').show();
-			
+
 			// BYMONTH and BYMONTHDAY attributes are going to be set
 			if ( typeof recur.BYMONTHDAY !== 'undefined' && typeof recur.BYMONTH !== 'undefined' ) {
 
@@ -259,11 +259,11 @@ function readRule( rrule ) {
 				// Set values
 				$('select[name="yearly-bymonth"]').val(recur.BYMONTH);
 				$('select[name="yearly-bymonthday"]').val(recur.BYMONTHDAY);
-				
-				
+
+
 				recurringRule.bymonth = recur.BYMONTH;
 				recurringRule.bymonthday = recur.BYMONTHDAY;
-				
+
 				return true;
 			}
 
@@ -300,7 +300,7 @@ function readRule( rrule ) {
 
 				// Set Radio Button
 				$('input#yearly-precise').prop('checked', true);
-				
+
 				// Set select values
 				$('select[name="yearly-byday"]').val(recur.BYDAY);
 				$('select[name="yearly-bysetpos"]').val(recur.BYSETPOS);
@@ -312,14 +312,14 @@ function readRule( rrule ) {
 				return true;
 			}
 
-			
+
 		break;
 
 	}
 
 	}
 }
- 
+
 	return false;
 
 }
@@ -327,7 +327,7 @@ function readRule( rrule ) {
 readRule = false;
 
 function resetOptions() {
-	
+
 	// Format the date (http://stackoverflow.com/questions/3605214/javascript-add-leading-zeroes-to-date)
 	today = new Date();
     MyDateString = today.getFullYear() + ('0' + (today.getMonth()+1)).slice(-2) + ('0' + today.getDate()).slice(-2);
@@ -355,20 +355,23 @@ function resetOptions() {
 		// Hide all but the daily options
 
 		$('#monthday-select,#bymonth-select,#weekday-select').hide();
-		
+
 		// Reset Interval back to 1
 		$('input[name="interval"]').val("1");
 
 		// Reset Count back to 1
 		$('input[name="count"]').val("1");
-		
+
 
 		// Change back Daily
 		$('select[name="freq"]').val('daily');
 
 		// Reset Until / Count radio buttons
-		$('input[id="until-select"]').prop('checked', false);
-		$('input[id="count-select"]').prop('checked', true).change();
+		//$('input[id="until-select"]').prop('checked', false); //ORIG line jon
+		//$('input[id="count-select"]').prop('checked', true).change(); //ORIG line jon
+		$('input[id="until-select"]').prop('checked', true).change();
+		$('input[id="count-select"]').prop('checked', false);
+
 		// $('#count').reset();
 }
 
@@ -387,19 +390,19 @@ function rruleGenerate() {
 			    	rrule += key + '=' + recurringRule[key] + ';';
 			    }
 			  }
-			}			
+			}
 		// Remove the last semicolon from the end of RRULE
 		rrule = rrule.replace(/;\s*$/, "");
 
 		// Convert to Uppercase and return
-		return rrule.toUpperCase();		
+		return rrule.toUpperCase();
 }
 
 $(document).ready(function(){
 
 	if ( readRule == false) {
 		resetOptions();
-	
+
     // Setup start-date picker
       $( '#start-date' ).datepicker({
       	showOtherMonths: true,
@@ -411,7 +414,7 @@ $(document).ready(function(){
 								dtstartString = dateSelected.getFullYear() + ('0' + (dateSelected.getMonth()+1)).slice(-2) + ('0' + dateSelected.getDate()).slice(-2);
 								$('#start-date-hidden').val(dtstartString + 'T040000z');
 								recurringRule.dtstart = dtstartString + 'T040000z';
-								
+
 								// Set minimum selected date on end-datepicker
 									minEndDate = dateSelected.getFullYear() + '-' + ('0' + (dateSelected.getMonth()+1)).slice(-2) + '-' + ('0' + dateSelected.getDate()).slice(-2);
 									$( '#end-date' ).datepicker('option', 'minDate', minEndDate);
@@ -420,7 +423,7 @@ $(document).ready(function(){
 									//alert(dateSelected);
 								}
     	}).datepicker('setDate', 'today');
-      
+
       $('#start-date-hidden').val(MyDateString + 'T000000z');
 
       // Setup the end-date picker
@@ -442,7 +445,7 @@ $(document).ready(function(){
 								}
     	}).datepicker('setDate', 'today');
 
-      
+
 		$('#end-date-hidden').val(MyDateString + 'T040000z');
 	}
 
@@ -452,11 +455,11 @@ $(document).ready(function(){
 			return false;
 		});
 
-});		
+});
 
 // Recurring Event Calculator: Show/Hide.  Grab all the radio buttons to see which one.
 $('input[name="event-recurring"]').change(function(){
-	
+
 	// Resets all the recurring options
 	resetOptions();
 
@@ -466,12 +469,12 @@ $('input[name="event-recurring"]').change(function(){
 
 		// Show Until Rules
 		$('#until-rules').show();
-	
+
 	} else {
 		//disable the inputs not selected.
 		$('#recurring-rules').hide();
 	}
-	
+
 });
 
 
@@ -508,7 +511,7 @@ $('input[name="event-recurring"]').change(function(){
 
 		// Set frequency
 		recurringRule.freq = $('select[name="freq"] option:selected').val();
-		
+
 		// If it is yearly, fire a change to setup the default values
 		if (recurringRule.freq == "yearly") {
 			$('select[name="yearly-bymonth"]').change();
@@ -519,7 +522,7 @@ $('input[name="event-recurring"]').change(function(){
 // Interval Selection
 	$(document).on('change blur keyup', 'input[name="interval"]', function(){
 		recurringRule.interval = $(this).val();
-		
+
 	});
 
 // BYDAY - FREQ: WEEKLY Selection
@@ -529,7 +532,7 @@ $('input[name="event-recurring"]').change(function(){
 
 		// Store Selected Days in the BYDAY rule
 		$('#weekday-select button').each(function(){
-		  
+
 			// Active class is the selected day, store the ID of active days which contains the short day name for the rrule (ex. MO, TU, WE, etc)
 			if ( $(this).hasClass('active') ) {
 				byday.push($(this).attr('id'));
@@ -537,7 +540,7 @@ $('input[name="event-recurring"]').change(function(){
 
 		});
 		recurringRule.byday = byday;
-		
+
 	});
 
 // BYMONTHDAY Selection
@@ -547,7 +550,7 @@ $('input[name="event-recurring"]').change(function(){
 
 		// Store Selected Days in the BYDAY rule
 		$('#monthday-select button').each(function(){
-		  
+
 			// Active class is the selected day, store the ID of active days which contains the short day name for the rrule (ex. MO, TU, WE, etc)
 			if ( $(this).hasClass('active') ) {
 				bymonthday.push($(this).attr('data-day-num'));
@@ -555,7 +558,7 @@ $('input[name="event-recurring"]').change(function(){
 
 		});
 		recurringRule.bymonthday = bymonthday;
-		
+
 		// Reset BYDAY Option
 		recurringRule.byday = "";
 
@@ -570,7 +573,7 @@ $('input[name="event-recurring"]').change(function(){
 
 		// Store Selected Days in the BYDAY rule
 		$('#bymonth-select button').each(function(){
-		  
+
 			// Active class is the selected day, store the ID of active days which contains the short day name for the rrule (ex. MO, TU, WE, etc)
 			if ( $(this).hasClass('active') ) {
 				bymonth.push($(this).attr('data-month-num'));
@@ -589,13 +592,13 @@ $('input[name="event-recurring"]').change(function(){
 
 		// A Radio was changed.  Grab all the radio buttons to see which one.
 		$('input[name="monthday-pos-select"]').each(function(){
-			
+
 			if ( $(this).val() == selectedRadio ) {
-				
+
 				switch ( $(this).val() ) {
 					case "month-byday-pos-selected":
 						// ByDay Select Boxes are being used instead of the Month Day
-						
+
 						// Disable all the monthday buttons
 						$('#monthday-select button').attr('disabled','disabled');
 						$('select[name^="month-byday"]').removeAttr('disabled');
@@ -605,7 +608,7 @@ $('input[name="event-recurring"]').change(function(){
 						// Mark recurring object bymonthday back to nothing
 						recurringRule.bymonthday = "";
 
-					break; 
+					break;
 
 					case "monthday-selected":
 
@@ -616,9 +619,9 @@ $('input[name="event-recurring"]').change(function(){
 						$('select[name^="month-byday"]').attr('disabled','disabled');
 						recurringRule.byday = "";
 						recurringRule.bysetpos = "";
-						
 
-					break; 
+
+					break;
 
 				}
 			}
@@ -634,22 +637,22 @@ $('input[name="event-recurring"]').change(function(){
 
 		// A Radio was changed.  Check all the radio buttons' ids to see which one.
 		$('input[name="yearly-options"]').each(function(){
-			
+
 			if (  $(this).attr('id') == selectedRadio ) {
-				
+
 				switch ( $(this).attr('id') ) {
 					case "yearly-one-month":
 						// Example Pattern
 						// FREQ=YEARLY;BYMONTH=1;BYMONTHDAY=1;UNTIL=20150818;
-						
+
 						// BYMONTH and BYMONTHDAY attributes are going to be set
-						// Reset BYSETPOS, BYDAY, 
+						// Reset BYSETPOS, BYDAY,
 						recurringRule.bysetpos = "";
 						recurringRule.byday = "";
 
-						// Disable all the yearly select boxes 
+						// Disable all the yearly select boxes
 						$('select[class^="yearly"]').attr('disabled','disabled');
-						
+
 						// Disable all the yearly multiple month buttons
 						$('.yearly-multiple-months button').attr('disabled','disabled');
 						$('.yearly-multiple-months button').removeClass('active');
@@ -660,26 +663,26 @@ $('input[name="event-recurring"]').change(function(){
 						// Fire change to select default values
 						$('select[name="yearly-bymonth"]').change();
 
-					break; 
+					break;
 
 					case "yearly-multiple-months":
-						// Example Pattern 
+						// Example Pattern
 						// FREQ=YEARLY;INTERVAL=1;BYMONTH=1,3,4,10;COUNT=1
-						
+
 						// BYMONTH attribute is going to be set
 						// Reset BYMONTHDAY, BYDAY, BYSETPOS
-						recurringRule.bymonthday = "";	
+						recurringRule.bymonthday = "";
 						recurringRule.byday = "";
 						recurringRule.bysetpos = "";
 
 						// Disable all the monthday buttons
 						$('select[class^="yearly"]').attr('disabled','disabled');
-						
+
 						// Enable the buttons
 						$('.yearly-multiple-months button').removeAttr('disabled');
-						
 
-					break; 
+
+					break;
 
 					case "yearly-precise":
 						// Example Pattern
@@ -689,9 +692,9 @@ $('input[name="event-recurring"]').change(function(){
 						// Reset BYMONTHDAY
 						recurringRule.bymonthday = "";
 
-						// Disable all the yearly select boxes 
+						// Disable all the yearly select boxes
 						$('select[class^="yearly"]').attr('disabled','disabled');
-						
+
 						// Disable all the yearly multiple month buttons
 						$('.yearly-multiple-months button').attr('disabled','disabled');
 						$('.yearly-multiple-months button').removeClass('active');
@@ -701,7 +704,7 @@ $('input[name="event-recurring"]').change(function(){
 
 						// Fire change to select default values
 						$('select[name="yearly-bysetpos"]').change();
-					break; 
+					break;
 				}
 			}
 
@@ -737,7 +740,7 @@ $(document).on('change', 'select[name^="yearly-bymonth"]', function(){
 
 		// Store Selected Days in the BYDAY rule
 		$('.yearly-multiple-months button').each(function(){
-		  
+
 			// Active class is the selected day, store the ID of active days which contains the short day name for the rrule (ex. MO, TU, WE, etc)
 			if ( $(this).hasClass('active') ) {
 				bymonth.push($(this).attr('data-month-num'));
@@ -794,7 +797,7 @@ $(document).on('change', 'select[name^="month-byday"]', function(){
 
 // Set the count variable
 	$(document).on('input change', 'input[name="count"]', function() {
-	
+
 		recurringRule.count = $(this).val();
 	});
 
@@ -822,10 +825,10 @@ $(document).on('change', 'select[name^="month-byday"]', function(){
 			} else {
 				//disable the inputs not selected.
 				$(this).next('input').attr('disabled','disabled').val('');
-				
+
 				//reset the stored value in the recurringRule object
 				 var not_selected = $(this).next('input').attr('name');
-				 
+
 				 recurringRule[not_selected] = '';
 
 			}
@@ -839,18 +842,14 @@ $(document).on('change', 'select[name^="month-byday"]', function(){
 		e.preventDefault();
 		// feed statement to rrule.js
 		// var rrule = rruleGenerate();
-		
+
 		// if ( rrule != '' ) {
 		// 	var recurringDays = new RRule.fromString(rrule);
 		// 	var html = makeRows(recurringDays.all());
 		// 	$(".show-dates").html(html);
-			
+
 		// }
 		alert ( rruleGenerate() );
 		return false;
-		
+
 	});
-
-
-
-

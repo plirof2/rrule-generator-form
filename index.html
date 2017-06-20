@@ -3,7 +3,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-
+<meta charset="UTF-8">
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -14,13 +14,129 @@
 </head>
 <body>
 <form name="rrule-gen" id="rrule">
-  <p>Start Date: <input type="text" class="datepicker" id="start-date" /></p>
+
+<table border=2><tr><td>
+
+  <li id="li_2" >
+<label class="description" for="element_2">parent_id </label>
+<div>
+<input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value=""/>
+</div>
+</li>
+<li id="li_1" >
+<label class="description" for="id-frontistirioy">id-frontistirioy </label>
+<div>
+<select class="element select medium" id="id-frontistirioy" name="id-frontistirioy">
+<option value="" selected="selected"></option>
+<option value="1" >ΘΕΣΜΟΣ</option>
+<option value="2" >ΚΟΡΜΟΣ</option>
+<option value="3" >ΔΕΣΜΕΣ</option>
+
+</select>
+</div>
+</li>		<li id="li_3" >
+<label class="description" for="id-classroom">id-classroom </label>
+<div>
+<select class="element select medium" id="id-classroom" name="id-classroom">
+<option value="" selected="selected"></option>
+<option value="1" >ΑΙΘΟΥΣΑ Α</option>
+<option value="2" >ΑΙΘΟΥΣΑ Β</option>
+<option value="3" >ΑΙΘΟΥΣΑ ΔΙΑΔΡΑΣΤΙΚΟΥ</option>
+<option value="4" >ΑΙΘ.-ΕΡΓΑΣΤΗΡΙΟ Β</option>
+
+</select>
+</div>
+</li>		<li id="li_4" >
+<label class="description" for="id_taksi">id_taksi </label>
+<div>
+<select class="element select medium" id="id_taksi" name="id_taksi">
+<option value="" selected="selected"></option>
+<option value="1" >ΓΥΜΝΑΣΙΟ-Α</option>
+<option value="2" >ΓΥΜΝΑΣΙΟ-Β</option>
+<option value="3" >ΓΥΜΝΑΣΙΟ-Γ</option>
+<option value="4" >ΛΥΚΕΙΟ-Α</option>
+<option value="5" >ΛΥΚΕΙΟ-Β</option>
+<option value="6" >ΛΥΚΕΙΟ-Γ ΘΕΤΙΚΗ</option>
+<option value="7" >ΛΥΚΕΙΟ-Γ ΘΕΩΡΗΤΙΚΗ</option>
+<option value="8" >LOWER</option>
+<option value="9" >JUNIOR-A</option>
+
+</select>
+</div>
+</li>		<li id="li_5" >
+<label class="description" for="id_teacher">id_teacher </label>
+<div>
+<select class="element select medium" id="id_teacher" name="id_teacher">
+<option value="" selected="selected"></option>
+<option value="1" >ΠΑΠΑΔΟΠΟΥΛΟΣ Κ. ΠΕ19 ΑΦΜ4554395349</option>
+<option value="2" >ΛΙΝΟΥΣ Τ. ΠΕ03 ΑΦΜ453534435</option>
+<option value="3" >ΓΚΕΤΗΣ Β. ΠΕ19 ΑΦΜ557395349</option>
+
+</select>
+</div>
+</li>		<li id="li_7" >
+<label class="description" for="id_tmima">id_tmima </label>
+<div>
+<select class="element select medium" id="id_tmima" name="id_tmima">
+<option value="" selected="selected"></option>
+<option value="1" >ΓΥΜΝ-Α2</option>
+<option value="2" >ΓΥΜΝ-Β3</option>
+<option value="3" >ΛΥΚ-ΓΘ1</option>
+<option value="4" >ΛΥΚ-ΓΤ1</option>
+
+</select>
+</div><p class="guidelines" id="guide_7"><small>ΦΙΛΤΡΑΡΕΤΑΙ ΒΑΣΗ ΤΑΞΗΣ + ΤΜΗΜΑΤΟΣ</small></p>
+</li>		<li id="li_6" >
+<label class="description" for="id_lesson">ΜΑΘΗΜΑ </label>
+<div>
+<select class="element select medium" id="id_lesson" name="id_lesson">
+<option value="" selected="selected"></option>
+<option value="1" >ΑΛΓΕΒΡΑ Β-ΓΥΜΝ</option>
+<option value="2" >ΠΛΗΡΟΦΟΡΙΚΗ Γ-ΛΥΚ.</option>
+<option value="3" >ΑΡΧΑΙΑ Β-ΛΥΚ.</option>
+
+</select>
+</div><p class="guidelines" id="guide_6"><small>(ΜΑΘΗΜΑ ΦΙΛΤΡΑΡΕΤΑΙ REAL-TIME ΒΆΣΗ ΤΑΞΗΣ)</small></p>
+</li>		<li id="li_8" >
+<label class="description" for="lesson_duration">lesson_duration </label>
+<div>
+<select class="element select medium" id="lesson_duration" name="lesson_duration">
+<option value="" selected="selected"></option>
+<option value="1" >45</option>
+<option value="2" >50</option>
+<option value="3" >60</option>
+
+</select>
+</div><p class="guidelines" id="guide_8"><small>Διάρκεια Μαθήματος</small></p>
+</li>
+
+
+
+
+</td></tr>
+<tr><td>
+
+
+
+<h2>Καταχώρηση ώρας</h2>
+
+
+
+
+
+
+
+
+
+
+
+  <p>Ημερομηνία έναρξης: <input type="text" class="datepicker" id="start-date" /></p>
   <input type="hidden" name="start-date-formatted" id="start-date-hidden" value="" />
 <!-- <p> End Date: <input type="text" class="datepicker" id="start-date" /></p> -->
-  <p>Recurring Event?
+  <p>Επαναλαμβανόμενο Event?
   <input type="radio" name="event-recurring" value="no" checked="checked" /> No
-  <input type="radio" name="event-recurring" value="yes" /> Yes
-  
+  <input type="radio" name="event-recurring" value="yes"  /> Yes   <!-- JON- THE OTHER OPTION ARE ACTIVATED BY CLICK EVENT - so leave this unchecked as default (so we have to CLICK) -->
+
   </p>
   <div id="recurring-rules" style="display:none;">
 
@@ -36,7 +152,7 @@
     <p>Every <input type="text" name="interval" value="1" size="2" /> <span class="freq-selection">day(s)</span>
     </p>
 
-    
+
 <!-- BYWEEKDAY -->
     <div id="weekday-select" class="btn-toolbar weeks-choice" role="toolbar" style="display:none;">
       <h4>Which day(s) of the week does this repeat on:</h4>
@@ -56,10 +172,10 @@
 <!-- BYMONTH -->
     <div id="bymonth-select" class="btn-toolbar years-choice" role="toolbar" style="display:none;">
       <h4>Which month(s) of the year does this repeat on</h4>
-      
+
       <p><input type="radio" name="yearly-options" id="yearly-one-month" checked="checked" /> One Month Out of the Year</p>
       on <select name="yearly-bymonth" id="yearly-bymonth" class="yearly-one-month">
-        <option value="1" selected="yes">January</option>
+        <option value="1" selected="yes">Ιανουάριος</option>
         <option value="2">February</option>
         <option value="3">March</option>
         <option value="4">April</option>
@@ -106,25 +222,25 @@
         <option value="30">30</option>
         <option value="31">31</option>
       </select>
-      
+
       <p><input type="radio" name="yearly-options" id="yearly-multiple-months" /> Multiple Months</p>
       <div style="display:block;float:none;" class="btn-group yearly-multiple-months">
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="1" disabled="disabled">Jan</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="2" disabled="disabled">Feb</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="3" disabled="disabled">Mar</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="4" disabled="disabled">Apr</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="5" disabled="disabled">May</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="6" disabled="disabled">Jun</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="1" disabled="disabled">Ιαν</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="2" disabled="disabled">Φεβ</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="3" disabled="disabled">Μαρ</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="4" disabled="disabled">Απρ</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="5" disabled="disabled">Μαιος</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="6" disabled="disabled">Ιουν</button>
       </div>
       <div style="display:block;float:none;" class="btn-group yearly-multiple-months">
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="7" disabled="disabled">Jul</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="8" disabled="disabled">Aug</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="9" disabled="disabled">Sep</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="10" disabled="disabled">Oct</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="11" disabled="disabled">Nov</button>
-        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="12" disabled="disabled">Dec</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="7" disabled="disabled">Ιουλ</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="8" disabled="disabled">Αυγ</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="9" disabled="disabled">Σεπ</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="10" disabled="disabled">Οκτ</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="11" disabled="disabled">Νοε</button>
+        <button class="btn btn-default" style="width:16.66666666666667%" data-month-num="12" disabled="disabled">Δεκ</button>
       </div>
-      
+
 
       <p><input type="radio" name="yearly-options" id="yearly-precise" /> Or be precise</p>
         on the <select name="yearly-bysetpos" class="yearly-precise" disabled="disabled">
@@ -160,15 +276,15 @@
         <option value="11">November</option>
         <option value="12">December</option>
       </select>
-      
+
     </div>
 
-<!-- BYMONTHDAY -->   
+<!-- BYMONTHDAY -->
     <div id="monthday-select" class="btn-toolbar months-choice" role="toolbar" style="display:none;">
-      <input type="radio" name="monthday-pos-select" value="monthday-selected" id="monthday-selected" checked="checked" /> 
-      
+      <input type="radio" name="monthday-pos-select" value="monthday-selected" id="monthday-selected" checked="checked" />
+
       <h4>Which day(s) of the month does this repeat on</h4>
-      <div class="btn-group" style="display:block;float:none;"> 
+      <div class="btn-group" style="display:block;float:none;">
         <button class="btn btn-default" style="width:14.28571428571429%;" data-day-num="1">1</button>
         <button class="btn btn-default" style="width:14.28571428571429%;" data-day-num="2">2</button>
         <button class="btn btn-default" style="width:14.28571428571429%;" data-day-num="3">3</button>
@@ -209,9 +325,9 @@
         <button class="btn btn-default" style="width:14.28571428571429%;" data-day-num="30">30</button>
       </div>
 
-  <!-- BYDAY -->  
+  <!-- BYDAY -->
       <div>
-      <input type="radio" name="monthday-pos-select" value="month-byday-pos-selected" id="month-byday-pos-selected" /> Or 
+      <input type="radio" name="monthday-pos-select" value="month-byday-pos-selected" id="month-byday-pos-selected" /> Or
         <select name="month-byday-pos" disabled="yes">
               <option value="1" selected="selected">First</option>
               <option value="2">Second</option>
@@ -220,13 +336,13 @@
               <option value="-1">Last</option>
         </select>
         <select name="month-byday-pos-name" disabled="yes">
-              <option value="SU">Sunday</option>
-              <option value="MO">Monday</option>
-              <option value="TU">Tuesday</option>
-              <option value="WE">Wednesday</option>
-              <option value="TH">Thursday</option>
-              <option value="FR">Friday</option>
-              <option value="SA">Saturday</option>
+              <option value="SU">ΚΥΡΙΑΚΗ</option>
+              <option value="MO">ΔΕΥΤΕΡΑ</option>
+              <option value="TU">ΤΡΙΤΗ</option>
+              <option value="WE">ΤΕΤΑΡΤΗ</option>
+              <option value="TH">ΠΕΜΠΤΗ</option>
+              <option value="FR">ΠΑΡΑΣΚΕΥΗ</option>
+              <option value="SA">ΣΑΒΒΑΤΟ</option>
               <option value="SU,MO,TU,WE,TH,FR,SA" selected="selected">Day</option>
               <option value="MO,TU,WE,TH,FR">Weekday</option>
               <option value="SU,SA">Weekend day</option>
@@ -236,18 +352,21 @@
 
     <div id="until-rules" style="display:none;">
       <p>Until</p>
-      <p> <label for="count-select"><input type="radio" name="end-select" value="count" id="count-select" checked="checked"/> How many times does this transaction occur? 
+      <p><label for="until-select"><input type="radio" name="end-select" value="until" id="until-select" checked="checked" /> Specific Date (aka until) <input type="text" name="until" id="end-date" disabled="yes" />
+      <input type="hidden" name="end-date-formatted" id="end-date-hidden" value="" /></label>
+      </p>
+<!--
+      <p> <label for="count-select"><input type="radio" name="end-select" value="count" id="count-select" /> How many times does this transaction occur?
 
         <input autocomplete="off" type="number" name="count" min="1" max="50" value="1" step="1"/> Time(s)</label>
     </p>
-    <p><label for="until-select"><input type="radio" name="end-select" value="until" id="until-select" /> Specific Date (aka until) <input type="text" name="until" id="end-date" disabled="yes" />
-    <input type="hidden" name="end-date-formatted" id="end-date-hidden" value="" /></label>
-    </p>
+  -->
     </div>
     <input type="submit" name="submit" value="submit" />
   </div>
 
 </form>
+</td></tr></table>
 <div class="show-dates">
 </div>
 <div class="readout">
@@ -257,7 +376,7 @@
 
 
                    </form>
-	
+
   <script type="text/javascript" src="js/rrule-gui.js"></script>
 </body>
 </html>
