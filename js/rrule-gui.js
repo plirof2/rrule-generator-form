@@ -78,6 +78,32 @@ function readRule( rrule ) {
 	$('#start-date-hidden').val(startYear+startMonth+startDay + 'T040000z');
 
 
+$('#test-date').datetimepicker({
+	timeFormat: 'HH:mm:ss',
+	stepHour: 1,
+	stepMinute: 15,
+	hourMin: 8,
+	hourMax: 23
+      	showOtherMonths: true,
+      	selectOtherMonths: true,
+      	dateFormat: 'yy-mm-dd',
+      	onSelect: function(value) {
+
+								dateSelected = new Date(value + ' 00:00:00');
+								dtstartString = dateSelected.getFullYear() + ('0' + (dateSelected.getMonth()+1)).slice(-2) + ('0' + dateSelected.getDate()).slice(-2);
+								$('#start-date-hidden').val(dtstartString + 'T040000z');
+								recurringRule.dtstart = dtstartString + 'T040000z';
+
+								// Set minimum selected date on end-datepicker
+									minEndDate = dateSelected.getFullYear() + '-' + ('0' + (dateSelected.getMonth()+1)).slice(-2) + '-' + ('0' + dateSelected.getDate()).slice(-2);
+									$( '#end-date' ).datepicker('option', 'minDate', minEndDate);
+									// Reset the selected enddate
+									$('#end-date-hidden').val(dtstartString + 'T040000z');
+
+								}
+    	}).datepicker('setDate', 'today');
+
+
 
     // Setup start-date picker
       $( '#start-date' ).datepicker({
@@ -100,12 +126,6 @@ function readRule( rrule ) {
 								}
     	}).datepicker('setDate', 'today');
 
-$('#test-date').datetimepicker({
-	timeFormat: 'HH:mm:ss',
-	stepHour: 2,
-	stepMinute: 10,
-	stepSecond: 10
-});
 
 
       // Setup the end-date picker
