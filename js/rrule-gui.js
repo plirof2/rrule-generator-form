@@ -83,7 +83,7 @@ $('#test-date').datetimepicker({
 	stepHour: 1,
 	stepMinute: 15,
 	hourMin: 8,
-	hourMax: 23
+	hourMax: 23,
       	showOtherMonths: true,
       	selectOtherMonths: true,
       	dateFormat: 'yy-mm-dd',
